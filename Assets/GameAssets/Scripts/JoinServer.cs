@@ -1,18 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
+using UniRx;
+using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class JoinServer : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private Button joinClientButton;
+        
     void Start()
     {
-        
+        HandleJoinClient();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void HandleJoinClient()
     {
-        
+        joinClientButton.OnClickAsObservable().Subscribe(_ =>
+        {
+            NetworkManager.Singleton.StartClient();
+        }).AddTo(gameObject);
     }
 }
