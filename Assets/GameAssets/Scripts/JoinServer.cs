@@ -1,12 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
-public class JoinServer : MonoBehaviour
+namespace GameAssets.Scripts
 {
-    public void Join()
+    public class JoinServer : MonoBehaviour
     {
-        NetworkManager.Singleton.StartClient();
+        public void Join()
+        {
+            // This is working after if game is hosted before
+            NetworkManager.Singleton.StartClient();
+        }
     }
 }
