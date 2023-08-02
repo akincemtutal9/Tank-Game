@@ -1,22 +1,12 @@
-using UniRx;
+using System.Collections;
+using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class JoinServer : MonoBehaviour
 {
-    [SerializeField] private Button joinClientButton;
-        
-    void Start()
+    public void Join()
     {
-        HandleJoinClient();
-    }
-
-    private void HandleJoinClient()
-    {
-        joinClientButton.OnClickAsObservable().Subscribe(_ =>
-        {
-            NetworkManager.Singleton.StartClient();
-        }).AddTo(gameObject);
+        NetworkManager.Singleton.StartClient();
     }
 }
