@@ -1,7 +1,7 @@
 using GameAssets.Scripts.Input;
 using UnityEngine;
 
-namespace GameAssets.Scripts
+namespace GameAssets.Scripts.Utils
 {
     public class TestScript : MonoBehaviour
     {

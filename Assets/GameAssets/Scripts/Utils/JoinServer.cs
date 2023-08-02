@@ -1,7 +1,7 @@
 using Unity.Netcode;
 using UnityEngine;
 
-namespace GameAssets.Scripts
+namespace GameAssets.Scripts.Utils
 {
     public class JoinServer : MonoBehaviour
     {
