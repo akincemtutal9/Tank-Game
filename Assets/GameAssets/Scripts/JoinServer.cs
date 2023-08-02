@@ -10,5 +10,10 @@ namespace GameAssets.Scripts
             // This is working after if game is hosted before
             NetworkManager.Singleton.StartClient();
         }
+
+        public void Host()
+        {
+            NetworkManager.Singleton.StartHost();
+        }
     }
 }
