@@ -8,8 +8,8 @@ namespace GameAssets.Scripts.Input
     public class InputReader : ScriptableObject, Controls.IPlayerActions
     {
         public event Action<bool> PrimaryFireEvent;
-
         public event Action<Vector2> MoveEvent;
+        public event Action<Vector2> AimEvent;
 
         private Controls controls;
         private void OnEnable()
@@ -30,6 +30,11 @@ namespace GameAssets.Scripts.Input
         {
             if(context.performed) {PrimaryFireEvent?.Invoke(true);}
             else if(context.canceled) {PrimaryFireEvent?.Invoke(false);}
+        }
+
+        public void OnAim(InputAction.CallbackContext context)
+        {
+            AimEvent?.Invoke(context.ReadValue<Vector2>());
         }
     }
 }

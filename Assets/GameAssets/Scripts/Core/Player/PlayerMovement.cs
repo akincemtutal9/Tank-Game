@@ -17,7 +17,7 @@ namespace GameAssets.Scripts.Core.Player
         
         private Vector2 _previousMovementInput;
         
-        public override void OnNetworkSpawn()// Start gibi
+        public override void OnNetworkSpawn()// Start 
         {
             if (!IsOwner) {return;}
             inputReader.MoveEvent += HandleMove;
@@ -32,7 +32,7 @@ namespace GameAssets.Scripts.Core.Player
         private void Update()
         {
             if (!IsOwner) {return;}
-            float zRotation = _previousMovementInput.x * -turningRate * Time.deltaTime;
+            var zRotation = _previousMovementInput.x * -turningRate * Time.deltaTime;
             bodyTransform.Rotate(0,0,zRotation);
         }
 
