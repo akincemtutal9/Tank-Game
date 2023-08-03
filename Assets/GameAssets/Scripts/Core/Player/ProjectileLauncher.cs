@@ -70,6 +70,8 @@ namespace GameAssets.Scripts.Core.Player
             SpawnDummyProjectileClientRpc(spawnPosition,direction);// Burda bişey oluşmayacak aslında bizim tarafımızda ama başkasının sıktıgı mermiye burda bir görüntü atamış oluyoruz
 
         }
+        
+        // Input Readerdan Input Actionstaki butona basıyor muyuz diye bakıyor burası 
         private void HandlePrimaryFire(bool shouldFire)
         {
             this.shouldFire = shouldFire;
