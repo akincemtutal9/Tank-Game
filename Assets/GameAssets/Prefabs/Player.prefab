@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 18407162160312173}
   - component: {fileID: 8131475679715899262}
   - component: {fileID: 7176287184277717290}
+  - component: {fileID: 8526221900103534886}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -146,6 +147,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputReader: {fileID: 11400000, guid: af076df84f6561444b5fb5ab43be8ac2, type: 2}
   turretTransform: {fileID: 1906422355457430521}
+--- !u!114 &8526221900103534886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 317622418927790578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 215ec2a3983b7e64cbad24b27f584257, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputReader: {fileID: 11400000, guid: af076df84f6561444b5fb5ab43be8ac2, type: 2}
+  projectileSpawnPoint: {fileID: 7862162661527122258}
+  serverProjectilePrefab: {fileID: 8800100941033566629, guid: 953b36b64e4ca1749a8120fe77f1966e, type: 3}
+  clientProjectilePrefab: {fileID: 9067677772925711622, guid: b002904c74e8bc14591707337ad6d014, type: 3}
+  projectileSpeed: 30
+  something: 0
 --- !u!1 &1174468938790757188
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,6 +312,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &4103990234153441314
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7862162661527122258}
+  m_Layer: 0
+  m_Name: ProjectileSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7862162661527122258
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4103990234153441314}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5453998497062532906}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4240168371336940156
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,7 +371,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.425, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7862162661527122258}
   m_Father: {fileID: 1906422355457430521}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
