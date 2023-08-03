@@ -1,3 +1,4 @@
+using GameAssets.Scripts.Core.Combat;
 using GameAssets.Scripts.Input;
 using Unity.Netcode;
 using UnityEngine;
@@ -55,6 +56,9 @@ namespace GameAssets.Scripts.Core.Player
             
             previousFireTime = Time.time;
         }
+        
+        
+        // Sadece Server Projectile Hasar vericek diğerleri vermiyecek
         [ServerRpc]
         private void PrimaryFireServerRpc(Vector3 spawnPosition,Vector3 direction)
         {
@@ -62,7 +66,11 @@ namespace GameAssets.Scripts.Core.Player
             projectile.transform.up = direction;
             
             Physics2D.IgnoreCollision(playerCollider,projectile.GetComponent<CircleCollider2D>());
-            
+
+            if (projectile.TryGetComponent<DealDamageOnContact>(out DealDamageOnContact dealDamageOnContact))
+            {
+                dealDamageOnContact.SetOwner(this.OwnerClientId);   
+            }
             if (projectile.TryGetComponent<Rigidbody2D>(out Rigidbody2D rb))
             {
                 rb.velocity = projectileSpeed * rb.transform.up;
