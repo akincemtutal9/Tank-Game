@@ -1,6 +1,3 @@
-using System;
-using UniRx;
-using UniRx.Triggers;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -12,17 +9,11 @@ namespace GameAssets.Scripts.Core.Coin
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (!other.TryGetComponent<Coin>(out Coin coin))
-            {
-                return;
-            }
+            if (!other.TryGetComponent<Coin>(out Coin coin)) { return; }
 
             int coinValue = coin.Collect();
 
-            if (!IsServer)
-            {
-                return;
-            }
+            if (!IsServer) { return; }
 
             TotalCoins.Value += coinValue;
 
