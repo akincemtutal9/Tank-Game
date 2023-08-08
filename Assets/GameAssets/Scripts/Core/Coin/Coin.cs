@@ -7,7 +7,7 @@ namespace GameAssets.Scripts.Core.Coin
     {
         [SerializeField] private SpriteRenderer spriteRenderer;
 
-        protected int coinValue;
+        protected int coinValue = 10;
         protected bool alreadyConnected;
 
         public abstract int Collect();
